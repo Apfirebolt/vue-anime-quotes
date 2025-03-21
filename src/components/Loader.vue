@@ -3,7 +3,7 @@
         <v-progress-circular
             indeterminate
             size="96"
-            color="secondary"
+            color="white"
         ></v-progress-circular>
     </v-container>
 </template>

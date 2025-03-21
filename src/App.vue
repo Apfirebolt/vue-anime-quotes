@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main style="background-color: #3E3F5B; color: white; padding: 40px 20px;">
       <Header />
       <router-view />
       <Footer />

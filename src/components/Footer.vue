@@ -1,13 +1,19 @@
 <template>
     <v-footer app color="primary" dark>
-        <v-col class="text-center">Anime Quotes © 2023</v-col>
+        <v-row>
+            <v-col>
+                Anime Quotes is a web application that displays random quotes from popular anime series. All rights reserved @ {{ currentYear }}
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col class="text-center">
+                Anime Quotes © {{ currentYear }}
+            </v-col>
+        </v-row>
     </v-footer>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-    name: 'Footer',
-});
+<script setup lang="ts">
+import { VFooter, VRow, VCol } from 'vuetify/components';
+const currentYear = new Date().getFullYear();
 </script>
