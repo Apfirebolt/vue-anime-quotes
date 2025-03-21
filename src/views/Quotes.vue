@@ -8,7 +8,7 @@
         </div>
         <div v-else class="quotes-grid">
             <v-row dense>
-                <v-col v-for="quote in quotes" :key="quote._id" cols="12" md="4">
+                <v-col v-for="(quote) in quotes.slice(0, showItems)" :key="quote._id" cols="12" md="4">
                     <v-card color="error" dark class="mb-4">
                         <v-card-title>{{ quote.show }}</v-card-title>
                         <v-card-subtitle>{{ quote.character }}</v-card-subtitle>
@@ -34,6 +34,17 @@ interface Quote {
 
 const quotes = ref<Quote[]>([]);
 const isLoading = ref<boolean>(false);
+const showItems = ref<number>(40);
+const isScrolling = ref<boolean>(false);
+
+const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isScrolling.value) return;
+    isScrolling.value = true;
+    setTimeout(() => {
+        showItems.value += 20;
+        isScrolling.value = false;
+    }, 1000);
+};
 
 const fetchQuote = async () => {
     try {
@@ -49,6 +60,7 @@ const fetchQuote = async () => {
 };
 
 onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
     fetchQuote();
 });
 </script>
