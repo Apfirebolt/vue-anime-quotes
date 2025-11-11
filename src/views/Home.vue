@@ -1,15 +1,49 @@
 <template>
   <div class="home">
-    <h1>Welcome to Anime Quotes</h1>
-    <p>Get inspired by random quotes from your favorite anime!</p>
-    <v-card v-if="quote" class="quote" style="margin-top: 20px;">
-      <v-card-title>{{ quote.character }}</v-card-title>
-      <v-card-text>{{ quote.quote }}</v-card-text>
-      <v-card-subtitle class="text-size">- from : {{ quote.show }}</v-card-subtitle>
-    <v-card-actions class="d-flex justify-center" style="margin: 20px 0;">
-      <v-btn variant="flat" color="secondary" @click="fetchQuote">Get Another Quote</v-btn>
-    </v-card-actions>
+    <div class="header-section">
+      <h1 class="main-title">Anime Quotes</h1>
+      <p class="subtitle">
+        Discover wisdom and inspiration from beloved anime characters
+      </p>
+    </div>
+
+    <v-card v-if="quote" class="quote-card" elevation="8">
+      <v-card-text class="quote-content">
+        <v-icon
+          icon="mdi-format-quote-open"
+          size="32"
+          color="primary"
+          class="quote-icon"
+        ></v-icon>
+        <p class="quote-text">{{ quote.quote }}</p>
+        <v-icon
+          icon="mdi-format-quote-close"
+          size="32"
+          color="primary"
+          class="quote-icon-close"
+        ></v-icon>
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <v-card-text class="attribution">
+        <div class="character-name">{{ quote.character }}</div>
+        <div class="show-name">{{ quote.show }}</div>
+      </v-card-text>
+
+      <v-card-actions class="card-actions">
+        <v-btn
+          size="large"
+          variant="elevated"
+          color="primary"
+          @click="fetchQuote"
+          prepend-icon="mdi-refresh"
+        >
+          New Quote
+        </v-btn>
+      </v-card-actions>
     </v-card>
+
     <Loader v-if="isLoading" />
   </div>
 </template>
@@ -48,6 +82,6 @@ onMounted(() => {
 
 <style>
 .text-size {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 </style>
