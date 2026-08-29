@@ -3,7 +3,7 @@
     <!-- Header Section -->
     <header class="header-section text-center mb-6">
       <h1 class="text-h4 font-weight-bold mb-2">Anime Quotes</h1>
-      <p class="text-subtitle-1 text-medium-emphasis">
+      <p class="text-subtitle-1 text-medium-emphasis text-info">
         Discover wisdom and inspiration from beloved anime characters
       </p>
     </header>
@@ -37,8 +37,8 @@
       <v-divider />
 
       <v-card-text class="text-right py-3 bg-surface-variant">
-        <div class="text-subtitle-1 font-weight-bold">{{ quote.character }}</div>
-        <div class="text-caption text-medium-emphasis">{{ quote.show }}</div>
+        <div class="text-subtitle-1 font-weight-bold text-success">{{ quote.character }}</div>
+        <div class="text-caption text-medium-emphasis text-error">{{ quote.show }}</div>
       </v-card-text>
 
       <v-card-actions class="justify-center pa-4">
@@ -49,6 +49,7 @@
           :loading="isLoading"
           prepend-icon="mdi-refresh"
           @click="getRandomQuote"
+          class="text-secondary"
         >
           New Quote
         </v-btn>

@@ -29,8 +29,7 @@
       <v-btn
         to="/random"
         variant="flat"
-        color="primary"
-        class="text-none font-weight-medium rounded-pill ml-2 px-4"
+        class="text-none font-weight-medium rounded-pill ml-2 px-4 text-info"
       >
         Random Quote
       </v-btn>

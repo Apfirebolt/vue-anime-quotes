@@ -37,14 +37,13 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-body-1 text-medium-emphasis mb-6 mx-auto" style="max-width: 440px;">
+        <p class="text-body-1 text-error text-medium-emphasis mb-6 mx-auto" style="max-width: 440px;">
           The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
         </p>
 
         <!-- Action Buttons -->
         <div class="d-flex flex-column flex-sm-row justify-center align-center ga-3">
           <v-btn
-            color="primary"
             variant="flat"
             size="large"
             prepend-icon="mdi-home"
@@ -60,7 +59,7 @@
             size="large"
             prepend-icon="mdi-arrow-left"
             @click="router.back()"
-            class="text-none px-6"
+            class="text-none px-6 text-secondary"
             rounded="pill"
           >
             Go Back
